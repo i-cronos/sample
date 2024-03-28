@@ -1,0 +1,1000 @@
+ 1009  kubectl get pod ng -n wano -o yaml
+ 1010  kubectl get pod ng -n wano -o yaml > nng.yaml
+ 1011  ls
+ 1012  rm cache.yaml 
+ 1013  nano nng.yaml 
+ 1014  kubectl delete pod ng -n wano
+ 1015  kubectl apply -f nng.yaml -n wano
+ 1016  kubectl get pod -n wano
+ 1017  kubectl get pod -n wano -o wide
+ 1018  kubectl create ns wari
+ 1019  kubectl get pod -n wano
+ 1020  kubectl expose pod ng --port=8080 --target-port=80 -n wano
+ 1021  kubectl get service -n wano
+ 1022  kubectl expose pod ng --port=8080 --target-port=80 -n wano --dry-run=client -o yaml
+ 1023  kubectl expose pod ng --port=8080 --target-port=80 -n wano --protocol=UDP --dry-run=client -o yaml
+ 1024  cat nng.yaml 
+ 1025  ls
+ 1026  kubectl delete service ng -n wano
+ 1027  kubectl expose pod ng --port=8080 --target-port=80 -n wari --protocol=TCP --dry-run=client -o yaml
+ 1028  kubectl expose pod ng --port=8080 --target-port=80 -n wano --protocol=TCP --dry-run=client -o yaml
+ 1029  kubectl run ng2 --image='nginx:1.25.4' -n wari --port=80
+ 1030  kubectl get pod -n wari
+ 1031  kubectl get pod -n wano
+ 1032  kubectl get pod -n wari -o wide
+ 1033  kubectl get pod -n wano -o wide
+ 1034  kubectl expose pod ng2 --port=8080 --target-port=80 -n wari
+ 1035  kubectl get service -n wari
+ 1036  kubectl delete all -n wano
+ 1037  kubectl get pod,service,node -o wide
+ 1038  kubectl get pod,service,node -n wano -o wide
+ 1039  kubectl delete all pod -n wano
+ 1040  kubectl delete pod pod all -n wano
+ 1041  kubectl delete pod --all -n wano
+ 1042  kubectl delete service --all -n wano
+ 1043  kubectl delete service --all -n war8
+ 1044  kubectl delete service --all -n wari
+ 1045  kubectl delete pod --all -n wari
+ 1046  kubectl create deployment --image=nginx:1.25.4 --port=80 --replicas=3 -n wano --dry-run=client -o yaml
+ 1047  kubectl create deployment ngx --image=nginx:1.25.4 --port=80 --replicas=3 -n wano --dry-run=client -o yaml
+ 1048  kubectl create deployment ngx --image=nginx:1.25.4 --port=80 --replicas=3 -n wano
+ 1049  kubectl get pod -n wano
+ 1050  kubectl expose deployment ngx --port=8080 --target-port=80 -w wano --dry-run=client -n wano
+ 1051  kubectl expose deployment ngx --port=8080 --target-port=80 -w wano --dry-run=client -o yaml
+ 1052  kubectl expose deployment ngx --port=8080 --target-port=80 -n wano --dry-run=client -o yaml
+ 1053  kubectl get pod -l 'app=ngx' -n wano
+ 1054  kubectl expose deployment ngx --port=8080 --target-port=80 -n wano
+ 1055  kubectl get service -n wano
+ 1056  kubectl run tool --image=cronosdevacr.azurecr.io/cronos/tool/leopard:1.0.0 -n wari
+ 1057  kubectl get endpoints
+ 1058  kubectl get endpoints -n wano
+ 1059  kubectl describe service ngx -n wano
+ 1060  kubectl rollout history deploy/ngx -n wano
+ 1061  kubectl get deploy ngx -n wano
+ 1062  kubectl get deploy ngx -n wano -o yaml > d.yaml
+ 1063  nano d.yaml 
+ 1064  kubectl apply -f d.yaml 
+ 1065  kubectl rollout history deploy/ngx -n wano
+ 1066  ls
+ 1067  rm d.yaml 
+ 1068  rm nng.yaml 
+ 1069  history | head movie.txt
+ 1070  history | tail >movie.txt
+ 1071  ls
+ 1072  cat movie.txt 
+ 1073  kubectl create configmap series --from-file movie.txt -n wano --dry-run=client -o yaml
+ 1074  kubectl create configmap series --from-file movie.txt -n wano
+ 1075  kubectl create configmap series --from-env-file movie.txt -n wano --dry-run=client -o yaml
+ 1076  env | tail
+ 1077  env | tail > var.txt
+ 1078  kubectl create configmap vares --from-env-file var.txt -n wano --dry-run=client -o yaml
+ 1079  kubectl create configmap vares --from-env-file var.txt -n wano
+ 1080  kubectl describe confimap vares -n wano
+ 1081  kubectl describe configmap vares -n wano
+ 1082  kubectl describe configmap series -n wano
+ 1083  kubectl configmap --help
+ 1084  kubectl configmap --from-literal 'AMC=Walking dead' --from-literal='HBO=Game of thrones' -n wano
+ 1085  kubectl configmap books --from-literal 'AMC=Walking dead' --from-literal 'HBO=Game of thrones' -n wano --dry-run=client -o yaml
+ 1086  kubectl create configmap books --from-literal 'AMC=Walking dead' --from-literal 'HBO=Game of thrones' -n wano --dry-run=client -o yaml
+ 1087  kubectl create configmap books --from-literal 'AMC=Walking dead' --from-literal 'HBO=Game of thrones' -n wano
+ 1088  kubectl describe configmap books -n wano
+ 1089  kubectl create configmap series --from-file "peliculas=/home/cronosmovie.txt" -n wano --dry-run=client -o yaml
+ 1090  kubectl create configmap series --from-file "peliculas=/home/cronos/movie.txt" -n wano --dry-run=client -o yaml
+ 1091  kubectl create configmap novelas --from-file "peliculas=/home/cronos/movie.txt" -n wano --dry-run=client -o yaml
+ 1092  kubectl create configmap novelas --from-file "peliculas=/home/cronos/movie.txt" -n wano
+ 1093  kubectl describe configmap novelas -n wano
+ 1094  kubectl create secret generic my-secret --from-literal=key1=supersecret --from-literal=key2=topsecret --dry-run=client -o yaml
+ 1095  kubectl create secret generic my-secret --from-env-file=var.txt --dry-run=client -o yaml
+ 1096  kubectl create secret generic my-secret --from-file=var.txt --dry-run=client -o yaml
+ 1097  cat var.txt 
+ 1098  echo "unix:path=/run/user/1000/bus" | base64
+ 1099  echo -n "unix:path=/run/user/1000/bus" | base64
+ 1100  echo -n "unix:path=/run/user/1000/bus"
+ 1101  echo "unix:path=/run/user/1000/bus"
+ 1102  kubectl get pod -n wano
+ 1103  kubectl get service -n wano
+ 1104  kubectl create service imu --tcp=8080:80 --dry-run=client -o yaml
+ 1105  kubectl create service clusterip imu --tcp=8080:80 -n wano --dry-run=client -o yaml
+ 1106  kubectl get pod -n wano -o wide
+ 1107  kubectl get pod -n wano --show-labels
+ 1108  kubectl create service clusterip ngx --tcp=8080:80 -n wano --dry-run=client -o yaml
+ 1109  kubectl create service clusterip ngx --tcp=8080:80 -n wano
+ 1110  kubectl delete service ngx -n wano
+ 1111  kubectl create service clusterip ngx --tcp=8080:80 -n wano
+ 1112  kubectl get service,endpoints -n wano
+ 1113  kubectl options
+ 1114  kubectl explain pods.spec.containers
+ 1115  kubectl exec -it tool -n wano -- bash
+ 1116  kubectl exec -it tool -n wari -- bash
+ 1117  cd projects/.dev/
+ 1118  ls
+ 1119  cat others 
+ 1120  cat services 
+ 1121  nano loop.sh
+ 1122  bash loop.sh 
+ 1123  nano loop.sh
+ 1124  bash loop.sh 
+ 1125  for name in a b c d;do echo $name; done
+ 1126  for name in {a b c d};do echo $name; done
+ 1127  for name in {1..5};do echo $name; done
+ 1128  for name in {a,b,c,d};do echo $name; done
+ 1129  for name in {a b c d};do echo $name; done
+ 1130  nano loop.sh 
+ 1131  bash loop.sh 
+ 1132  nano loop.sh 
+ 1133  bash loop.sh 
+ 1134  test=(a b c d e)
+ 1135  echo $test
+ 1136  echo $test[@]
+ 1137  echo ${test[@]}
+ 1138  ncal
+ 1139  shutdown -P now
+ 1140  poweroff
+ 1141  ls
+ 1142  cd tmp/
+ 1143  ls
+ 1144  rm -rf *
+ 1145  ls
+ 1146  openssl genrsa -out benito.key 2048
+ 1147  ls
+ 1148  cat benito.key 
+ 1149  openssl req -new -key benito.key -out benito.csr -subj "/CN=benito"
+ 1150  ls
+ 1151  cat benito.csr 
+ 1152  openssl req -in benito. -noout -text
+ 1153  openssl req -in benito.csr -noout -text
+ 1154  ñp
+ 1155  poweroff
+ 1156  ls tmp/
+ 1157  ls
+ 1158  nano Hello.java
+ 1159  ls
+ 1160  mv Hello.java tmp/
+ 1161  cd tmp/
+ 1162  ls
+ 1163  nano Dockerfile
+ 1164  docker build . -t jd
+ 1165  docker image ls
+ 1166  docker container run -it --rm jd:latest 
+ 1167  whereis watch
+ 1168  watch -n 5 date
+ 1169  watch -n 5 -d date
+ 1170  kubectl get pod
+ 1171  kubectlgetpod
+ 1172  poweroff
+ 1173  cat -n poema.txt 
+ 1174  grep "^cat++"
+ 1175  cd Desktop/
+ 1176  grep "^me" poema.txt 
+ 1177  nano po
+ 1178  nano poema.txt 
+ 1179  grep "^cat" poema.txt 
+ 1180  grep "cat$" poema.txt 
+ 1181  grep "^$" poema.txt 
+ 1182  grep -n --help
+ 1183  grep -n "^$" poema.txt 
+ 1184  grep -n "$" poema.txt 
+ 1185  grep -n "^" poema.txt 
+ 1186  grep -n "^.$" poema.txt 
+ 1187  grep -n "^..$" poema.txt 
+ 1188  grep -n "^...$" poema.txt 
+ 1189  echo "aks.dev" | grep "(.*)\.(.*)"
+ 1190  echo $1
+ 1191  echo $2
+ 1192  echo "aks.dev" | 3grep "(.*)\.(.*)"
+ 1193  echo "aks.dev" | egrep "(.*)\.(.*)"
+ 1194  echo $2
+ 1195  echo $1
+ 1196  poweroff
+ 1197  which ls
+ 1198  ldd $(which ls)
+ 1199  ldd $(which kubeclt)
+ 1200  ldd $(which kubectl)
+ 1201  ldd $(which apt)
+ 1202  poweroff 
+ 1203  apt search ipcal
+ 1204  sudo apt install ipcal
+ 1205  sudo apt install ipcalc
+ 1206  ipcalc
+ 1207  ipcalc -c
+ 1208  ipcalc 192.168.0.1/24
+ 1209  ipcalc 192.168.0.1/27
+ 1210  ipcalc 192.168.0.1/26
+ 1211  ipcalc -C
+ 1212  ipcalc -c
+ 1213  ipcalc --help
+ 1214  ipcalc 192.168.0.0/24
+ 1215  ipcalc 192.168.0.0 -s 10
+ 1216  ipcalc 192.168.0.0 -s 100
+ 1217  ipcalc 192.168.0.0 -s 50
+ 1218  ipcalc 10.10.0.0 -s 50
+ 1219  poweroff 
+ 1220  whereis perl
+ 1221  curl https://cronosapim.azure-api.net/conference/topics
+ 1222  curl https://cronosapim.azure-api.net/conference/topics -H "ocp-apim-subscription-key: 385d879ee6d84596b8f0936aaf7b81fe"
+ 1223  curl -XGET https://cronosapim.azure-api.net/conference/topics -H "ocp-apim-subscription-key: 385d879ee6d84596b8f0936aaf7b81fe"
+ 1224  curl https://cronosapim.azure-api.net/conference/topics
+ 1225  curl -XGET https://cronosapim.azure-api.net/conference/topics -H "ocp-apim-subscription-key: 385d879ee6d84596b8f0936aaf7b81fe"
+ 1226  curl https://cronosapim.azure-api.net/conference/topics
+ 1227  curl -XGET https://cronosapim.azure-api.net/conference/topics -H "ocp-apim-subscription-key: 385d879ee6d84596b8f0936aaf7b81fe"
+ 1228  curl -XGET https://cronosapim.azure-api.net/conference/topics -H "ocp-apim-subscription-key: 01e07bcc907048a6b280ea6b0d5d410e"
+ 1229  curl -XGET https://cronosapim.azure-api.net/conference/topics -H "ocp-apim-subscription-key: 4d54a4a9b2d74440a2b87dace6575bbd"
+ 1230  curl -XGET https://cronosapim.azure-api.net/conference/topics -H "ocp-apim-subscription-key: 075ec728940d4e8888d72b7112b44912"
+ 1231  curl -XGET https://cronosapim.azure-api.net/conference/topics -H "ocp-apim-subscription-key: 943d7eb5daaf48c596cebc5940eca090"
+ 1232  curl XGET https://conferenceapi.azurewebsites.net
+ 1233  curl XGET https://conferenceapi.azurewebsites.net/topics
+ 1234  curl -XGET https://conferenceapi.azurewebsites.net/topics
+ 1235  curl -XGET https://cronosapim.azure-api.net/course/web/topics -H "ocp-apim-subscription-key: 943d7eb5daaf48c596cebc5940eca090"
+ 1236  curl -XGET  https://cronosapim.azure-api.net/echo/list/product -H "ocp-apim-subscription-key: 943d7eb5daaf48c596cebc5940eca090"
+ 1237  curl -XGET https://cronosapim.azure-api.net/conference/list/product -H "ocp-apim-subscription-key: 943d7eb5daaf48c596cebc5940eca090"
+ 1238  curl -i -XGET https://cronosapim.azure-api.net/conference/list/product -H "ocp-apim-subscription-key: 943d7eb5daaf48c596cebc5940eca090"
+ 1239  curt -XGET https://cronosapim.azure-api.net/oneline/v1/topics -H "ocp-apim-subscription-key: 21384f149df04435a42e59c53e3ccb11"
+ 1240  curl -XGET https://cronosapim.azure-api.net/oneline/v1/topics -H "ocp-apim-subscription-key: 21384f149df04435a42e59c53e3ccb11"
+ 1241  curl -XGET https://cronosapim.azure-api.net/oneline/v2/topics -H "ocp-apim-subscription-key: 21384f149df04435a42e59c53e3ccb11"
+ 1242  telnet 57.151.52.48 443
+ 1243  telnet 57.151.52.48 80
+ 1244  idea
+ 1245  ls
+ 1246  cd projects/
+ 1247  ls
+ 1248  cd helm/
+ 1249  ls
+ 1250  ls cronos-charts/
+ 1251  ls public/
+ 1252  cd ..
+ 1253  ls
+ 1254  cd kubernetes/
+ 1255  ls
+ 1256  cd calculator/
+ 1257  ls
+ 1258  cat multi-ingress.yaml 
+ 1259  cd ..
+ 1260  ls
+ 1261  ls global/
+ 1262  ls global/native/
+ 1263  ls gapp/
+ 1264  cd ..
+ 1265  ls
+ 1266  cd projects/kubernetes/
+ 1267  ls
+ 1268  cd ingress/
+ 1269  ls
+ 1270  cd .
+ 1271  cd ..
+ 1272  ls
+ 1273  ls global/
+ 1274  ls global/native/
+ 1275  ls calculator/
+ 1276  cd calculator/
+ 1277  ls
+ 1278  cat add-ingress.yaml 
+ 1279  kubectl apply -f add-ingress.yaml -n wano
+ 1280  kubectl delete -f add-ingress.yaml -n wano
+ 1281  kubectl get ingressclass
+ 1282  ls
+ 1283  kubectl apply -f add-ingress.yaml -n wano
+ 1284  kubectl apply -f subtract-ingress.yaml -n wano
+ 1285  kubectl apply -f multi-ingress.yaml -n wano
+ 1286  kubectl get ingress -n cima
+ 1287  kubectl get ingress -n wano
+ 1288  kubectl describe ingress addition -n wano
+ 1289  kubectl get service -n wari
+ 1290  kubectl get service -n wano
+ 1291  curl -XPOST http://57.151.52.4880/add-app/api/v1.0/addition/simple -d '{"scale":"4", "a":45, "b":33}' -H "Content-Type: application/json"
+ 1292  kubectl get pod
+ 1293  kubectl get ns
+ 1294  kubectl get pod -n wano
+ 1295  kubectl get pod -n wari
+ 1296  kubectl get service -n wari
+ 1297  kubectl get jon -n wano
+ 1298  kubectl get job -n wano
+ 1299  kubectl get cronjob -n wano
+ 1300  kubectl get deploy -n wano
+ 1301  kubectl delete deploy ngx -n wano
+ 1302  kubectl get pod
+ 1303  kubectl get ingressclass
+ 1304  kubectl delete ingressclass nginx
+ 1305  kubectl get ingressclass
+ 1306  kubectl get service -n cima
+ 1307  kubectl get service -n wari
+ 1308  kubectl get pod -n wari
+ 1309  kubectl create deploy juanito --image=cronosdevacr.azurecr.io/cronos/app/additionapp:1.0.0 --port=8080 -n wano
+ 1310  kubectl create deploy maria --image=cronosdevacr.azurecr.io/cronos/app/multiplicationapp:1.0.0 --port=8080 -n wano
+ 1311  kubectl create deploy benito --image=cronosdevacr.azurecr.io/cronos/app/subtractionapp:1.0.0 --port=8080 -n wano
+ 1312  kubectl get deploy,pod -n wano
+ 1313  kubectl expose deploy benito --port=9090 --target-port=8080
+ 1314  kubectl expose deploy benito --port=9090 --target-port=8080 -n wano
+ 1315  kubectl expose deploy maria --port=9090 --target-port=8080 -n wano
+ 1316  kubectl expose deploy benito --port=9090 --target-port=8080 -n wano
+ 1317  kubectl expose deploy juanito --port=9090 --target-port=8080 -n wano
+ 1318  kubectl get service -n wano
+ 1319  kubectl delete service ngx -n wano
+ 1320  kubectl get service -n wano
+ 1321  kubectl run --image=cronosdevacr.azurecr.io/cronos/tool/leopard:1.0.0 -n wano
+ 1322  kubectl run tool --image=cronosdevacr.azurecr.io/cronos/tool/leopard:1.0.0 -n wano
+ 1323  kubectl get pod -n wano
+ 1324  kubectl get service -n wano
+ 1325  kubectl get pod,service -n wano -o wide
+ 1326  curl -XPOST http://57.151.52.48/add-app/api/v1.0/addition/simple -d '{"scale":"4", "a":45, "b":33}' -H "Content-Type: application/json"
+ 1327  kubectl get ingress -n wano
+ 1328  curl -XPOST http://57.151.52.48/subtract-app/api/v1.0/subtraction/simple -d '{"scale":"4", "a":45, "b":33}' -H "Content-Type: application/json"
+ 1329  curl -XPOST http://57.151.52.48/multiply-app/api/v1.0/multiplication/simple -d '{"scale":"4", "a":45, "b":33}' -H "Content-Type: application/json"
+ 1330  kubectl describe ingress addition -n wano
+ 1331  kubectl get service -n wari
+ 1332  kubectl get node -o wide
+ 1333  kubectl get pod -n wano
+ 1334  kubectl get pod -n wari
+ 1335  kubectl logs ngxc-nginx-ingress-controller-668c4464f4-kh2fd -n wari
+ 1336  kubectl get service -n wano
+ 1337  kubectl get ingress -n wano
+ 1338  kubectl get service,ingress -n wano
+ 1339  kubectl get service -n wari
+ 1340  kubectl describe ingress addition -n wano
+ 1341  kubectl get pod -n wano
+ 1342  kubectl get service,ingress,pod -n wano
+ 1343  kubectl get service,ingress,pod -n wano -o wide
+ 1344  kubectl get pod,service,ingress -n wano -o wide
+ 1345  kubectl describe ingress addition -n wano
+ 1346  kubectl describe ingress multiplication -n wano
+ 1347  kubectl exec -it tool -n wano -- bash
+ 1348  kubectl apply -f add-ingress-rewrite.yaml -n wano
+ 1349  poweroff 
+ 1350  docker image ls
+ 1351  docker container run -itd alpine:3.19.1 
+ 1352  docker container ls
+ 1353  docker exec -it brave_fermat sh
+ 1354  docker container stop brave_fermat 
+ 1355  docker image prune
+ 1356  ls
+ 1357  cd tmp/
+ 1358  ls
+ 1359  mkdir perl
+ 1360  cd perl/
+ 1361  nano hello.perl
+ 1362  perl hello.perl 
+ 1363  ls
+ 1364  chmod a+x hello.perl 
+ 1365  ls
+ 1366  ./hello.perl 
+ 1367  /usr/bin/env
+ 1368  /usr/bin/env | grep perl
+ 1369  nano hello.perl 
+ 1370  perl hello.perl 
+ 1371  poweroff
+ 1372  bc
+ 1373  poweroff 
+ 1374  poweroff
+ 1375  bc
+ 1376  poweroff
+ 1377  bc
+ 1378  ipcalc 172.25.217.192/21
+ 1379  ipcal
+ 1380  ipcalc
+ 1381  ipcalc -v
+ 1382  bc
+ 1383  poweroff 
+ 1384  ls
+ 1385  cd tmp/
+ 1386  ls
+ 1387  mkdir gitty
+ 1388  cd gitty/
+ 1389  LS
+ 1390  ls
+ 1391  git init
+ 1392  ls -lha
+ 1393  cd .g
+ 1394  cd .git/
+ 1395  ls
+ 1396  ls -lh
+ 1397  git branch 
+ 1398  cat HEAD 
+ 1399  ls -lh
+ 1400  cat config 
+ 1401  ls
+ 1402  ls objects/
+ 1403  ls objects/pack/
+ 1404  cd ..
+ 1405  ls
+ 1406  echo "Hello, Git" | git hash-object
+ 1407  ls
+ 1408  echo "Hello, Git" | git hash-object --stdin
+ 1409  ls
+ 1410  echo "Hello, Git" | git hash-object --stdin -w
+ 1411  ls
+ 1412  ls -lh .git/
+ 1413  cat .git/objects/b7/aec520dec0a7516c18eb4c68b64ae1eb9b5a5e 
+ 1414  echo "Hello, Git from Limon" | git hash-object --stdin -w
+ 1415  cat .git/objects/b7/aec520dec0a7516c18eb4c68b64ae1eb9b5a5e 
+ 1416  echo -n "Hello, Git" | shasum 
+ 1417  echo "Hello, Git" | git hash-object --stdin
+ 1418  echo "Hello, Git" | shasum 
+ 1419  ls
+ 1420  ls -lha
+ 1421  echo "Hello, Git" | git hash-object --stdin
+ 1422  git cat-file -p b7aec520dec0a7516c18eb4c68b64ae1eb9b5a5e
+ 1423  git cat-file -s b7aec520dec0a7516c18eb4c68b64ae1eb9b5a5e
+ 1424  git cat-file -t b7aec520dec0a7516c18eb4c68b64ae1eb9b5a5e
+ 1425  ls -lha
+ 1426  ls -lha .ig
+ 1427  ls -lha .git/
+ 1428  ls -lha .git/objects/
+ 1429  ls
+ 1430  history > cmd.txt
+ 1431  git hash-object cmd.txt -w
+ 1432  git cat-file -p 70bab19fc2de3d9ddf3d362e9a82ad705bb7e131
+ 1433  l
+ 1434  ls
+ 1435  rm cmd.txt 
+ 1436  ls
+ 1437  ks
+ 1438  ls
+ 1439  cd .git/
+ 1440  cd objects/
+ 1441  ls
+ 1442  fin
+ 1443  ls
+ 1444  cd ..
+ 1445  ls
+ 1446  find .git/objects -t f
+ 1447  find .git/objects -type f
+ 1448  nano arbol.txt
+ 1449  l
+ 1450  ls
+ 1451  cat arbol.txt | git maketree
+ 1452  cat arbol.txt | git make-tree
+ 1453  cat arbol.txt | git mktree
+ 1454  ls -lh .git/objects/
+ 1455  LL
+ 1456  git cat-file -p 2987d213b352da639e72e2b0c6afb050cab0b0f8
+ 1457  git cat-file -s 2987d213b352da639e72e2b0c6afb050cab0b0f8
+ 1458  git cat-file -t 2987d213b352da639e72e2b0c6afb050cab0b0f8
+ 1459  git cat-file -t 2987d213b35
+ 1460  git cat-file -t 2987d213b
+ 1461  git cat-file -t 2987d21
+ 1462  git read-tree 2987d21
+ 1463  ls
+ 1464  git read-tree 2987d213b352da639e72e2b0c6afb050cab0b0f8
+ 1465  ls
+ 1466  git ls-files
+ 1467  git ls-files 
+ 1468  git ls-files -s
+ 1469  git checkout-index -a
+ 1470  ls
+ 1471  cat a.txt 
+ 1472  poweroff
+ 1473  cd tmp/
+ 1474  ls
+ 1475  cd gitty/
+ 1476  ls
+ 1477  git status
+ 1478  git config --list
+ 1479  git ls-tree
+ 1480  git ls-files
+ 1481  git ls-files -s
+ 1482  git add .
+ 1483  git commit -m "first commint"
+ 1484  git status
+ 1485  ls
+ 1486  git log
+ 1487  git cat-file -p b4084522dd7be5120593f147718408d4caafb840
+ 1488  git log
+ 1489  git log --oneline
+ 1490  git branch 
+ 1491  ls
+ 1492  nano d.txt
+ 1493  ls
+ 1494  git status
+ 1495  git add d.txt 
+ 1496  git status
+ 1497  git ls-files
+ 1498  git ls-files -s
+ 1499  git rm --cached d.txt
+ 1500  ls
+ 1501  git status
+ 1502  git ls-files -s
+ 1503  git add d.txt 
+ 1504  git ls-files -s
+ 1505  git status
+ 1506  git commit -m "Second commit!"
+ 1507  git log
+ 1508  git cat-file -p b02f434b15315d968735b33d45646fa2dbe7a0b3
+ 1509  ls
+ 1510  rm a.txt b.txt c.txt d.txt 
+ 1511  git status
+ 1512  git add .
+ 1513  git commit -m "thrird commit"
+ 1514  git log
+ 1515  git branch tmp
+ 1516  git branch 
+ 1517  ls -lh .git/refs/heads/
+ 1518  git log
+ 1519  git cat-file -p b02f434b15315d968735b33d45646fa2dbe7a0b3
+ 1520  git cat-file -p b4084522dd7be5120593f147718408d4caafb840
+ 1521  cat .git/HEAD
+ 1522  git cat-file 8491b1adcf7cfac4cbac897d9d9e137e9ffcec7c
+ 1523  git cat-file -p 8491b1adcf7cfac4cbac897d9d9e137e9ffcec7c
+ 1524  git cat-file -p dc24b092ba0762425f2d767b086db894fd33add0
+ 1525  ls
+ 1526  ls -lh .git/
+ 1527  cat .git/HEAD 
+ 1528  cat refs/heads/master
+ 1529  cat .git/refs/heads/master
+ 1530  git log --oneline
+ 1531  cat .git/refs/heads/master
+ 1532  ls -lh .git/refs/
+ 1533  ls -lh .git/refs/heads/
+ 1534  ls -lh .git/branches/
+ 1535  ls
+ 1536  git log --oneline 
+ 1537  git checkout 4356fce
+ 1538  ls
+ 1539  git checkout b02f434
+ 1540  ls
+ 1541  git log --oneline 
+ 1542  git checkout b408452
+ 1543  ls
+ 1544  git log --oneline 
+ 1545  git branch 
+ 1546  git checkout master
+ 1547  git log --oneline 
+ 1548  cat .git/HEAD 
+ 1549  poweroff
+ 1550  git cat-file -p b90b775a0d1a1b93ea14897580d8d4ea97e4dd31
+ 1551  git cat-file -p 2a96573bff67a923825f737fa749e2853c92c279
+ 1552  git cat-file -p 9540d125cf40bcb0d921e10b3a8dca3f056ea7d7
+ 1553  cd ..
+ 1554  ls
+ 1555  mdig newgitty
+ 1556  mkdir newgitty
+ 1557  cd newgitty/
+ 1558  ls
+ 1559  nano trilce.txt
+ 1560  git commit -a -m "poema trilce!"
+ 1561  git init 
+ 1562  git commit -a -m "poema trilce!"
+ 1563  git status
+ 1564  git add trilce.txt 
+ 1565  git commit -m "poema trilce!"
+ 1566  nano heraldos.txt
+ 1567  git add heraldos.txt 
+ 1568  git commit -m "peoma los heraldos negros"
+ 1569  nano humano.txt
+ 1570  git add humano.txt 
+ 1571  git commit -m "poema humano!"
+ 1572  nano caliz.txt
+ 1573  git add caliz.txt 
+ 1574  git commit -m "peoema caliz!"
+ 1575  git log --oneline
+ 1576  ls
+ 1577  ls -lh
+ 1578  cd ..
+ 1579  ld
+ 1580  ls
+ 1581  cp -R newgitty newgitty2
+ 1582  cd newgitty
+ 1583  git log --oneline
+ 1584  git reset db19a64
+ 1585  git log --oneline
+ 1586  ls
+ 1587  git status 
+ 1588  git reset db19a64
+ 1589  git status 
+ 1590  ls
+ 1591  git ls-files
+ 1592  git ls-files -s
+ 1593  git reset db19a64 --soft
+ 1594  git ls-files -s
+ 1595  git status
+ 1596  git log --oneline
+ 1597  git reset db19a64 --hard
+ 1598  git log --oneline
+ 1599  ls
+ 1600  git reset c701f43
+ 1601  git log --oneline
+ 1602  ls
+ 1603  git status 
+ 1604  git reset 3b80fa0
+ 1605  git log --oneline
+ 1606  git status 
+ 1607  git add .
+ 1608  git commit -m "peoma caliz y humano!"
+ 1609  git status 
+ 1610  git log --oneline
+ 1611  ls
+ 1612  git status 
+ 1613  git reset --soft 3b80fa0
+ 1614  git status 
+ 1615  git ls-files -s
+ 1616  git commit -m "peoma caliz y humano soft"
+ 1617  git log --oneline
+ 1618  ls
+ 1619  git reset --hard 3b80fa0
+ 1620  ,s
+ 1621  ls
+ 1622  git status 
+ 1623  cd ../newgitty2
+ 1624  git log --oneline
+ 1625  git revert HEAD
+ 1626  git log --oneline
+ 1627  ls
+ 1628  git cat-file -p 97a991f
+ 1629  git cat-file -p b6e067c6b6090dd1e8d6308ac84d5176a2f0a897
+ 1630  git cat-file -p db19a64
+ 1631  git cat-file -p 8dc8a76c66cc562646aa784dca661917fe30adc0
+ 1632  ls
+ 1633  cd projects/
+ 1634  cd .dev/
+ 1635  ls
+ 1636  cat githube.txt 
+ 1637  cd ~
+ 1638  lw
+ 1639  cd tmp/
+ 1640  ls
+ 1641  cd gitty/
+ 1642  git branch 
+ 1643  git checkout tmp 
+ 1644  ls
+ 1645  nano vallejo.c
+ 1646  git add vallejo.c 
+ 1647  git commit 
+ 1648  git status
+ 1649  git checkout master 
+ 1650  ls
+ 1651  git merge tmp
+ 1652  ls
+ 1653  git branch
+ 1654  cat .git/refs/heads/
+ 1655  cat .git/refs/heads/master 
+ 1656  cat .git/refs/heads/tmp 
+ 1657  git log --oneline
+ 1658  git branch -d tmp
+ 1659  git branch 
+ 1660  ls
+ 1661  git checkout -b arcos
+ 1662  nano arabasta.txt
+ 1663  nano dressrosa.txt
+ 1664  ls
+ 1665  git status 
+ 1666  git add .
+ 1667  git commit 
+ 1668  git rm --cached arabasta.txt
+ 1669  git rm --cached dressrosa.txt
+ 1670  git status 
+ 1671  git add arabasta.txt 
+ 1672  git commit -m "arco de arabasta!"
+ 1673  git status
+ 1674  git add dressrosa.txt 
+ 1675  git commit 
+ 1676  nano wano.txt
+ 1677  git add wano.txt 
+ 1678  git commit 
+ 1679  git log
+ 1680  git status
+ 1681  git checkout master
+ 1682  ls
+ 1683  nano heraldos.txt
+ 1684  git add heraldos.txt 
+ 1685  git commit -m "Los heraldos negros"
+ 1686  nano agape.txt
+ 1687  git add agape.txt 
+ 1688  git commit 
+ 1689  git status 
+ 1690  nano trilce.txt
+ 1691  git add trilce.txt 
+ 1692  git commit -m "El trilce poemay"
+ 1693  git status 
+ 1694  git log --oneline 
+ 1695  git branch 
+ 1696  git checkout arcos
+ 1697  git log --oneline
+ 1698  git checkout master
+ 1699  git branch 
+ 1700  git merge arcos
+ 1701  git log --oneline 
+ 1702  git cat-file -p 9bd52ac
+ 1703  git cat-file -t 9bd52ac
+ 1704  git cat-file -p 9bd52ac
+ 1705  git cat-file -p ec27aee57d571f1c04c428a932746c142aed0830
+ 1706  ls
+ 1707  git branch 
+ 1708  nano game.txt
+ 1709  git add game.txt 
+ 1710  git commit -m "game of thrones"
+ 1711  nano papel.txt
+ 1712  git add papel.txt 
+ 1713  git commit -m "La case de papel"
+ 1714  git branch 
+ 1715  git checkout arcos
+ 1716  git branch 
+ 1717  nano psg.txt
+ 1718  git add psg.txt 
+ 1719  git commit -m "Paris psg"
+ 1720  git real.txt
+ 1721  nano real.txt
+ 1722  git add real.txt 
+ 1723  git commit -m "Real madrid España"
+ 1724  git branch 
+ 1725  git checkout master 
+ 1726  git log --oneline
+ 1727  git branch 
+ 1728  git merge arcos
+ 1729  git log --oneline
+ 1730  git log
+ 1731  git cat-file -p 1d6fee2042293594929fb2db3abb87a40121a441
+ 1732  git cat-file -p d06c8666c05b1fbc09a16219fca265f6e9c12060
+ 1733  git cat-file -p 23196e2a2480af4d9f9dd66dd428bc761789967c
+ 1734  cd ..
+ 1735  ls
+ 1736  cp -R gitty catty
+ 1737  cd gitty/
+ 1738  git log --oneline
+ 1739  git cat-file 821a8f3
+ 1740  git cat-file -p 821a8f3
+ 1741  git log --oneline
+ 1742  git cat-file -p 821a8f3
+ 1743  git branch 
+ 1744  cd ..
+ 1745  ls
+ 1746  rm -rf *
+ 1747  mkdir sample
+ 1748  cd sample/
+ 1749  ls
+ 1750  git init
+ 1751  git branch 
+ 1752  nano trilce.txt
+ 1753  git add trilce.txt 
+ 1754  git commit -m "[master] add trilce"
+ 1755  git status
+ 1756  nano frio.txt
+ 1757  git add frio.txt 
+ 1758  git commit -m "[master] frio.txt"
+ 1759  nano politica.txt
+ 1760  git add politica.txt 
+ 1761  git commit -m "[master] add politica"
+ 1762  nano heraldos.txt
+ 1763  git add heraldos.txt 
+ 1764  git commit -m "[master] add heraldos"
+ 1765  git log --oneline
+ 1766  git checkout -b op
+ 1767  git branch 
+ 1768  nano arabasta.txt
+ 1769  nano wano.txt
+ 1770  nano dressrosa.txt
+ 1771  nano wolecake.txt
+ 1772  git add arabasta.txt 
+ 1773  git commit -m "[op] add arabasta"
+ 1774  git add dressrosa.txt 
+ 1775  git commit -m "[op] add dressrosa"
+ 1776  git add wolecake.txt 
+ 1777  git commit -m "[op] add wole cake"
+ 1778  git add wano.txt 
+ 1779  git commit -m "[op] add wano"
+ 1780  git log --oneline 
+ 1781  ls
+ 1782  git checkout master 
+ 1783  ls
+ 1784  git checkout -b series
+ 1785  nano hbo.txt
+ 1786  git add hbo.txt 
+ 1787  git commit -m "[series] add game of thrones"
+ 1788  nano netflix.txt
+ 1789  git add netflix.txt 
+ 1790  git commit -m "[series] add house of paper"
+ 1791  git log --oneline
+ 1792  git checkout master 
+ 1793  git branch 
+ 1794  git merge op
+ 1795  ls
+ 1796  git log --oneline
+ 1797  git reset --hard ce6544d
+ 1798  ls
+ 1799  git log --oneline
+ 1800  nano espania.txt
+ 1801  git add espania.txt 
+ 1802  git commit -m "[master] add spania"
+ 1803  nano toki.txt
+ 1804  git add toki.txt 
+ 1805  git commit -m "[master] add tokio"
+ 1806  git log --oneline 
+ 1807  git ls
+ 1808  ls
+ 1809  ls -
+ 1810  ls -1
+ 1811  git log --oneline 
+ 1812  git branch 
+ 1813  git merge op
+ 1814  git log --oneline 
+ 1815  ls -1
+ 1816  git log --oneline 
+ 1817  git branch 
+ 1818  git merge series
+ 1819  ls -1
+ 1820  git log --oneline 
+ 1821  nano bug.txt
+ 1822  git add bug.txt 
+ 1823  git commit -m "[master] add bug"
+ 1824  git log --oneline 
+ 1825  git reset --hard 1a88aa1
+ 1826  git log --oneline 
+ 1827  ls
+ 1828  git log --oneline 
+ 1829  git reflog
+ 1830  git reflog | grep merge
+ 1831  git log --oneline 
+ 1832  git reset --hard HEAD~1
+ 1833  ls
+ 1834  git log --oneline 
+ 1835  git reset --hard HEAD~1
+ 1836  git log --oneline 
+ 1837  ls -lh
+ 1838  ncal
+ 1839  ncal 2024
+ 1840  poweroff
+ 1841  cd tmp/
+ 1842  ls
+ 1843  rm -rf sample
+ 1844  git clone https://github.com/i-cronos/sample.git
+ 1845  ls
+ 1846  cd sample/
+ 1847  ls
+ 1848  ls -lha
+ 1849  nano App.java
+ 1850  ls
+ 1851  cd ..
+ 1852  ls
+ 1853  mkdir pand
+ 1854  cd pand/
+ 1855  mvn archetype:generate -DgroupId=cronos.pe -DartifactId=sample -DarchetypeArtifactId=-archetype-quickstart -DinteractiveMode=false
+ 1856  mvn archetype:generate -DgroupId=cronos.pe -DartifactId=sample -DarchetypeArtifactId=archetype-quickstart -DinteractiveMode=false
+ 1857  mvn archetype:generate -DgroupId=cronos.pe -DartifactId=sample
+ 1858  ls
+ 1859  cd sample/
+ 1860  ls
+ 1861  mv pom.xml src ../../tmp/sample/
+ 1862  ls
+ 1863  cd ../../
+ 1864  rm -rf pand
+ 1865  cd tmp/sample/
+ 1866  ls
+ 1867  idea
+ 1868  cd   ~
+ 1869  ls
+ 1870  cd projects/.dev/
+ 1871  ls
+ 1872  cat githube.txt 
+ 1873  git log --oneline 
+ 1874  git branc
+ 1875  git branch 
+ 1876  git checkout main 
+ 1877  git pull
+ 1878  git log --oneline 
+ 1879  git log --graph
+ 1880  git status
+ 1881  nano .git/config 
+ 1882  nano .git/config
+ 1883  git fetch 
+ 1884  git checkout --track origin/payment
+ 1885  git checkout master
+ 1886  git branch 
+ 1887  git checkout main
+ 1888  git checkout payment
+ 1889  git checkout main
+ 1890  git checkout payment 
+ 1891  git checkout main
+ 1892  git log --oneline 
+ 1893  git checkout payment 
+ 1894  git log --oneline 
+ 1895  git checkout main 
+ 1896  git log --oneline 
+ 1897  git merge payment
+ 1898  git log --oneline 
+ 1899  git cat-file a009af5
+ 1900  pwd
+ 1901  git push --force
+ 1902  git pull
+ 1903  git log --oneline 
+ 1904  git reset 27ded3f
+ 1905  git push --force
+ 1906  git pull
+ 1907  git checkout payment 
+ 1908  git log --oneline 
+ 1909  ls -lh .git
+ 1910  ls -lh .git/branches/}
+ 1911  ls -lh .git/branches/
+ 1912  ls -lh .git/
+ 1913  ls -lh .git/refs/
+ 1914  ls -lh .git/refs/remotes/origin/
+ 1915  ls -lh .git/refs/heads/
+ 1916  git branch 
+ 1917  ls -lh .git/
+ 1918  cat .git/config
+ 1919  git checkout 
+ 1920  git checkout main
+ 1921  git fetch
+ 1922  git log --oneline
+ 1923  git pull
+ 1924  cd /home/cronos/tmp/sample
+ 1925  git log --oneline 
+ 1926  git cat-file -p a009af5
+ 1927  git log --oneline 
+ 1928  git reset a009af5
+ 1929  git log --oneline 
+ 1930  git log --oneline
+ 1931  git cat-file a009af5
+ 1932  git log --oneline
+ 1933  git cat-file -p a009af5
+ 1934  git reset --merge a009af5
+ 1935  git reset --merge HEAD~1
+ 1936  poweroff
+ 1937  az account set --subscription 12b6f868-e28e-42bd-8709-cd7030d68fd5
+ 1938  kubectl get node
+ 1939  cd .kube/
+ 1940  ls
+ 1941  rm -rf *
+ 1942  ls
+ 1943  cd ..
+ 1944  az aks get-credentials --resource-group cronos-eastus-dev-aks --name cronosdevaks --overwrite-existing
+ 1945  kubectl get nodes
+ 1946  kubectl top node
+ 1947  hostname -I
+ 1948  id
+ 1949  systemctl status sshd
+ 1950  systemctl status ssh
+ 1951  apt search openssh-sevrer
+ 1952  apt search openssh-server
+ 1953  sudo apt install openssh-server
+ 1954  sudo apt update
+ 1955  sudo apt install openssh-server
+ 1956  cd /etc/apt/
+ 1957  ls
+ 1958  sudo nano sources.list
+ 1959  apt search openssh
+ 1960  apt search openssh-server
+ 1961  ls
+ 1962  sudo cp sources.list sources.list.real
+ 1963  cat sources.list
+ 1964  sudo echo "" > sources.list
+ 1965  sudo nano sources.list
+ 1966  apt search openssh-server
+ 1967  sudo apt update
+ 1968  apt search openssh-server
+ 1969  sudo apt install openssh-server
+ 1970  cat sources.list.real 
+ 1971  deb http://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+ 1972  # deb-src http://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+ 1973  deb http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+ 1974  # deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+ 1975  deb http://archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+ 1976  # deb-src http://archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+ 1977  deb http://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+ 1978  # deb-src http://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+ 1979  deb http://archive.canonical.com/ubuntu/ jammy partner
+ 1980  # deb-src http://archive.canonical.com/ubuntu/ jammy partnerdeb http://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+ 1981  # deb-src http://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+ 1982  deb http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+ 1983  # deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+ 1984  deb http://archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+ 1985  # deb-src http://archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+ 1986  deb http://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+ 1987  # deb-src http://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+ 1988  deb http://archive.canonical.com/ubuntu/ jammy partner
+ 1989  # deb-src http://archive.canonical.com/ubuntu/ jammy partner
+ 1990  sudo apt install openssh-server
+ 1991  ls
+ 1992  rm -rf sources.list
+ 1993  sudo rm -rf sources.list
+ 1994  ls
+ 1995  mv sources.list.real sources.list
+ 1996  sudo mv sources.list.real sources.list
+ 1997  poweroff 
+ 1998  ncal
+ 1999  ncal 2024
+ 2000  poweroff 
+ 2001  ls
+ 2002  cd tmp/
+ 2003  ls
+ 2004  cd sample/
+ 2005  ls
+ 2006  git branch -v
+ 2007  git checkout -b feature
+ 2008  history > xd.txt
